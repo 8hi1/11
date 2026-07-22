@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 𝘋𝘰𝘯'𝘵 𝘧𝘢𝘭𝘭 𝘰𝘧 𝘮𝘺 𝘦𝘺𝘦𝘴 </title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn.discordapp.com/banners/1278725877391167518/a_e920190efb1ac8697d5b04fe9dcd5178.gif?size=1024&animated=true') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: #0000ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .image-container img {
+            width: 475px; 
+            height: auto;
+            border: 2px solid #ffffff; 
+            border-radius: 55px;
+            box-shadow: 0 0 15px rgba(0, 0, 0); 
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ffffff; 
+            text-shadow: 0px 0px 8px #000000, 0px 0px 15px #000000, 0px 0px 25px #000000; 
+            letter-spacing: 4.5px; 
+            white-space: pre-wrap;
+        }
+        .text {
+            margin-top: 20px;
+            font-size: 4em; 
+            color: #ffffff; 
+            text-shadow: 0px 0px 8px #000000, 0px 0px 15px #000000, 0px 0px 25px #000000; 
+            letter-spacing: 4.5px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://d.top4top.io/p_3854be98e1.jpg" alt="Discord Image">
+    </div>
+    <audio autoplay loop>
+    <source src="https://gigantic-jade-bkyrtk7l.edgeone.dev/Molchat%20Doma%20-%20Sudno%20(dir.%20by%20@blood.doves).mp3" type="audio/mpeg">
+    متصفحك لا يدعم تشغيل الصوت.
+</audio>
+    <div class="info" id="ip-info">
+        <strong>IP: <span id="ip"></span></strong><br>
+        <span><strong>City:</strong> <span id="city"></span></span><br>
+        <span><strong>Region:</strong> <span id="region"></span></span><br>
+        <span><strong>Country:</strong> <span id="country"></span></span><br>
+        <span><strong>Location:</strong> <span id="loc"></span></span><br>
+        <span><strong>Organization:</strong> <span id="org"></span></span><br>
+        <span><strong>Timezone:</strong> <span id="timezone"></span></span>
+    </div>
+    <div class="text">𝘋𝘪𝘴𝘤𝘰𝘳𝘥.𝘨𝘨/𝘢𝘦𝟥</div>
+
+    <script>
+         fetch('https://ipinfo.io/json')
+        .then(response => response.json())
+        .then(data => {
+            delete data.readme;
+            const infoDiv = document.getElementById('ip-info');
+            infoDiv.textContent = JSON.stringify(data, null, 2);
+        });
+    </script>
+</body>
+</html>
